@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">How old am I today ?</string>
+    <string name="string_app_title">How old am I today ?</string>
+    <string name="string_buttonStart">Start</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="string_birthInfo">Pick your birth date</string>
+    <string name="string_buttonCalculate">Calculate</string>
+</resources>

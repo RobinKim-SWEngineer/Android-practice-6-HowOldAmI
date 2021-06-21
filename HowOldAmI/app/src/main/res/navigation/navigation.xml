@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/appStartFragment">
+
+    <fragment
+        android:id="@+id/appStartFragment"
+        android:name="com.howOldAmIToday.howoldami.AppStartFragment"
+        android:label="AppStartFragment"
+        tools:layout="@layout/fragment_app_start">
+        <action
+            android:id="@+id/action_appStartFragment_to_birthInfoInputFragment"
+            app:destination="@id/birthInfoInputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/birthInfoInputFragment"
+        android:name="com.howOldAmIToday.howoldami.BirthInfoInputFragment"
+        android:label="BirthInfoInputFragment"
+        tools:layout="@layout/fragment_birth_info_input">
+        <action
+            android:id="@+id/action_birthInfoInputFragment_to_ageDisplayFragment"
+            app:destination="@id/ageDisplayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ageDisplayFragment"
+        android:name="com.howOldAmIToday.howoldami.AgeDisplayFragment"
+        android:label="AgeDisplayFragment"
+        tools:layout="@layout/fragment_age_display"/>
+</navigation>
