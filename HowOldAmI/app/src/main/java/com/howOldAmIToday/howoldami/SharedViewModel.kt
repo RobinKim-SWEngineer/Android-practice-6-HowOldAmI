@@ -4,52 +4,62 @@ import androidx.lifecycle.ViewModel
 import kotlin.properties.Delegates
 
 class SharedViewModel: ViewModel() {
-    var birthYear by Delegates.notNull<String>()
-    var birthMonth by Delegates.notNull<String>()
-    var birthDay by Delegates.notNull<String>()
-    var year = "years"
-    var month = "months"
-    var day = "days"
+    private var birthYear by Delegates.notNull<Int>()
+    private var birthMonth by Delegates.notNull<Int>()
+    private var birthDay by Delegates.notNull<Int>()
+
+    private lateinit var yearSuffix: String
+    private lateinit var monthSuffix: String
+    private lateinit var daySuffix: String
 
     fun setBirthInfo(year: Int, month: Int, day: Int) {
-        birthYear = year.toString()
-        birthMonth = month.toString()
-        birthDay = day.toString()
+        birthYear = year
+        birthMonth = month
+        birthDay = day
 
         setSentence()
     }
 
     private fun setSentence() {
 
-        if (birthYear == "1") {
-            year = "year"
+        yearSuffix = when(birthYear) {
+            1 -> "year"
+            else -> "years"
         }
 
-        if (birthYear == "0") {
-            birthYear = ""
-            year = ""
+        monthSuffix = when(birthMonth) {
+            1 -> "month"
+            else -> "months"
         }
 
-        if (birthMonth == "1") {
-            month = "month"
-        }
-
-        if (birthMonth == "0") {
-            birthMonth = ""
-            month = ""
-        }
-
-        if (birthDay == "1") {
-            day = "days"
-        }
-
-        if (birthDay == "0") {
-            birthDay = ""
-            day = ""
+        daySuffix = when(birthDay) {
+            1 -> "day"
+            else -> "days"
         }
     }
 
     fun getBirthInfoFormatted(): String {
-        return String.format("Today, you are %s %s %s %s %s %s old", birthYear, year, birthMonth, month, birthDay, day)
+        return when {
+
+            isZero(birthYear) && isZero(birthMonth) && isZero(birthDay)-> "Today, you are born."
+
+            isZero(birthYear) && isZero(birthMonth) -> "Today, you are $birthDay $daySuffix old"
+
+            isZero(birthMonth) && isZero(birthDay) -> "Today, you are $birthYear $yearSuffix old"
+
+            isZero(birthYear) && isZero(birthDay) -> "Today, you are $birthMonth $monthSuffix old"
+
+            isZero(birthYear) -> "Today, you are $birthMonth $monthSuffix $birthDay $daySuffix old"
+
+            isZero(birthMonth) -> "Today, you are $birthYear $yearSuffix $birthDay $daySuffix old"
+
+            isZero(birthDay) -> "Today, you are $birthYear $yearSuffix $birthMonth $monthSuffix old"
+
+            else -> "Today, you are $birthYear $yearSuffix $birthMonth $monthSuffix $birthDay $daySuffix old"
+        }
+    }
+
+    private fun isZero(number: Int): Boolean {
+        return number == 0
     }
 }

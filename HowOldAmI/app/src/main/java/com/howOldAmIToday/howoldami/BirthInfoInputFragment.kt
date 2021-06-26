@@ -1,12 +1,11 @@
 package com.howOldAmIToday.howoldami
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.*
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 
 import com.howOldAmIToday.howoldami.databinding.FragmentBirthInfoInputBinding
 import java.util.*
@@ -26,7 +25,7 @@ class BirthInfoInputFragment : Fragment() {
             fragmentManager?.let { datePickerFragment.show(it, "DatePicker") }
         }
 
-        binding.buttonAppStart.setOnClickListener {
+        binding.buttonAgeCalculate.setOnClickListener {
             setSharedAgeInfo()
             view?.findNavController()?.navigate(R.id.action_birthInfoInputFragment_to_ageDisplayFragment)
         }

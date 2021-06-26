@@ -6,7 +6,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AppStartFragment">
+        tools:context=".AppStartFragment"
+        android:background="@drawable/background">
 
         <TextView
             android:id="@+id/textView_appTitle"
@@ -14,17 +15,20 @@
             android:layout_height="wrap_content"
             android:text="@string/string_app_title"
             android:textSize="30sp"
-            android:textStyle="bold"
+            android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.22"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_appStart"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
+            android:layout_marginTop="30sp"
+            app:cornerRadius="20dp"
+            android:backgroundTint="@color/material_on_surface_stroke"
             android:text="@string/string_buttonStart"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ShareCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import com.howOldAmIToday.howoldami.databinding.FragmentAgeDisplayBinding
@@ -38,6 +39,14 @@ class AgeDisplayFragment : Fragment() {
         binding.textViewAge.text = sharedViewModel.getBirthInfoFormatted()
         binding.quotes = getQuotes()
 
+        binding.floatingButtonEmail.setOnClickListener() {
+            ShareCompat.IntentBuilder.from(requireActivity())
+                .setType("text/plain")
+                .setChooserTitle("")
+                .setSubject(binding.textViewAge.text.toString())
+                .setText(binding.textViewQuote.text)
+                .startChooser()
+        }
         return binding.root
     }
 

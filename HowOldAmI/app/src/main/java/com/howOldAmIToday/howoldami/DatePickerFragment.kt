@@ -36,7 +36,7 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
         birthMonth = month
         birthDay = dayOfMonth
 
-        var button = parentFragment?.view?.findViewById<Button>(R.id.button_appStart)
+        var button = parentFragment?.view?.findViewById<Button>(R.id.button_ageCalculate)
         var text = parentFragment?.view?.findViewById<TextView>(R.id.textView_enterBirth)
 
         if (button != null && text != null) {

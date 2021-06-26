@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/appStartFragment"
         android:name="com.howOldAmIToday.howoldami.AppStartFragment"
-        android:label="AppStartFragment"
+        android:label="How old am I today?"
         tools:layout="@layout/fragment_app_start">
         <action
             android:id="@+id/action_appStartFragment_to_birthInfoInputFragment"
@@ -17,15 +17,20 @@
     <fragment
         android:id="@+id/birthInfoInputFragment"
         android:name="com.howOldAmIToday.howoldami.BirthInfoInputFragment"
-        android:label="BirthInfoInputFragment"
         tools:layout="@layout/fragment_birth_info_input">
         <action
             android:id="@+id/action_birthInfoInputFragment_to_ageDisplayFragment"
-            app:destination="@id/ageDisplayFragment" />
+            app:destination="@id/ageDisplayFragment"
+            app:popUpTo="@id/appStartFragment"
+            app:popUpToInclusive="false"/>
     </fragment>
     <fragment
         android:id="@+id/ageDisplayFragment"
         android:name="com.howOldAmIToday.howoldami.AgeDisplayFragment"
-        android:label="AgeDisplayFragment"
         tools:layout="@layout/fragment_age_display"/>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.howOldAmIToday.howoldami.AboutFragment"
+        android:label="Information"
+        tools:layout="@layout/fragment_about" />
 </navigation>

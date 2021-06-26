@@ -13,7 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AgeDisplayFragment">
+        tools:context=".AgeDisplayFragment"
+        android:background="@drawable/background">
 
         <TextView
             android:id="@+id/textView_age"
@@ -25,16 +26,15 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:textColor="#9C27B0"
-            android:textSize="25sp"
-            android:textStyle="bold"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.4" />
+            app:layout_constraintVertical_bias="0.22" />
 
         <TextView
+            android:id="@+id/textView_quote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxEms="15"
@@ -47,7 +47,16 @@
             app:layout_constraintRight_toRightOf="@id/textView_age"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView_age"
-            app:layout_constraintVertical_bias="0.2" />
+            app:layout_constraintVertical_bias="0.12" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingButton_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/material_on_surface_stroke"
+            app:layout_constraintRight_toRightOf="@id/textView_quote"
+            app:layout_constraintTop_toBottomOf="@id/textView_quote"
+            app:srcCompat="@drawable/ic_baseline_mail_outline_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
