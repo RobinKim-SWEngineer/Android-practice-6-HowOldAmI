@@ -1,4 +1,5 @@
+
 # Android-practice-7-HowOldAmI
 App publication practice on Google Play
 
-![Alt Text](https://github.com/RobinKim-SWEngineer/Images-for-document/blob/master/HowOldAmIToday.gif)
+https://user-images.githubusercontent.com/76751931/123525623-6de2fa00-d6d2-11eb-8406-171591197d69.mp4
