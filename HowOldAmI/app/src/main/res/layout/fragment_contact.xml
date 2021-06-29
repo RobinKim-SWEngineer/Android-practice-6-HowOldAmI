@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ContactFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textView_contactHeader"
+                android:textColor="#2975B6"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/textView_contactSubHeader"
+                android:textColor="#8C9AA6"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="163dp"
+                android:layout_height="157dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/layout_border_oval"
+                app:srcCompat="@drawable/date_picker_foreground" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_border"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="#C3F5FAFA"
+                    android:hint="@string/editText_firstName"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textSize="@dimen/editText_contactInputTextSize" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#C3F5FAFA"
+                    android:hint="@string/editText_Email"
+                    android:inputType="textEmailAddress"
+                    android:padding="10dp"
+                    android:textSize="@dimen/editText_contactInputTextSize" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#C3F5FAFA"
+                    android:gravity="start"
+                    android:hint="@string/editText_comment"
+                    android:inputType="textLongMessage"
+                    android:padding="10dp"
+                    android:textSize="@dimen/editText_contactInputTextSize" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="181dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="@string/button_sendInContact"
+                app:cornerRadius="20dp" />
+
+        </LinearLayout>
+    </FrameLayout>
+</layout>

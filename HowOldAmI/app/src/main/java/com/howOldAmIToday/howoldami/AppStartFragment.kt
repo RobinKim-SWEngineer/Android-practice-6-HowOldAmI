@@ -20,7 +20,6 @@ class AppStartFragment : Fragment() {
 
         setHasOptionsMenu(true)
 
-
         return binding.root
     }
 

@@ -8,7 +8,9 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import java.util.*
+import kotlin.math.abs
 import kotlin.properties.Delegates
 
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener  {
@@ -24,6 +26,7 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
     private lateinit var button: Button
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val calender = Calendar.getInstance()
+
         currentYear = calender.get(Calendar.YEAR)
         currentMonth = calender.get(Calendar.MONTH)
         currentDay = calender.get(Calendar.DAY_OF_MONTH)
@@ -42,6 +45,17 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
         if (button != null && text != null) {
             button.visibility = View.VISIBLE
             text.text = String.format("%d / %d / %d",year, month + 1, dayOfMonth)
+
+            val sharedViewModel: SharedViewModel by activityViewModels()
+            setSharedAgeInfo(sharedViewModel)
         }
+    }
+
+    private fun setSharedAgeInfo(viewModel: SharedViewModel) {
+        val year = currentYear - birthYear
+        val month = currentMonth - birthMonth
+        val day = currentDay - birthDay
+
+        viewModel.setBirthInfo(year, abs(month), abs(day))
     }
 }

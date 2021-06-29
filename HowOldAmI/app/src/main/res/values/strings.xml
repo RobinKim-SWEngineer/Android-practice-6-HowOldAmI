@@ -11,4 +11,10 @@
     <string name="about_text">This application shows how old you are today. \n
 With a carefully chosen sentences about life, you will let yourself reflect upon your time and life itself.
 </string>
+    <string name="textView_contactHeader">Get in Touch</string>
+    <string name="textView_contactSubHeader">Feel free to drop me a line below!</string>
+    <string name="editText_firstName">Your name</string>
+    <string name="editText_Email">E-mail</string>
+    <string name="editText_comment">Any comment on your mind</string>
+    <string name="button_sendInContact">send</string>
 </resources>
