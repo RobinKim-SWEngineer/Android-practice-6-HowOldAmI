@@ -10,11 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import com.howOldAmIToday.howoldami.databinding.FragmentAgeDisplayBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AgeDisplayFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AgeDisplayFragment : Fragment() {
 
     data class Quotes(var quote: String)
@@ -32,14 +27,18 @@ class AgeDisplayFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var binding = DataBindingUtil.inflate<FragmentAgeDisplayBinding>(inflater, R.layout.fragment_age_display, container, false)
+        val binding = DataBindingUtil.inflate<FragmentAgeDisplayBinding>(inflater, R.layout.fragment_age_display, container, false)
 
         val sharedViewModel: SharedViewModel by activityViewModels()
 
         binding.textViewAge.text = sharedViewModel.getBirthInfoFormatted()
         binding.quotes = getQuotes()
 
-        binding.floatingButtonEmail.setOnClickListener() {
+        if (savedInstanceState != null) {
+            binding.quotes!!.quote = savedInstanceState.getString("quote")!!
+        }
+
+        binding.floatingButtonEmail.setOnClickListener {
             ShareCompat.IntentBuilder.from(requireActivity())
                 .setType("text/plain")
                 .setChooserTitle("")
@@ -53,5 +52,11 @@ class AgeDisplayFragment : Fragment() {
     private fun getQuotes(): Quotes {
         quotes.shuffle()
         return quotes[0]
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putString("quote", quotes[0].quote)
     }
 }

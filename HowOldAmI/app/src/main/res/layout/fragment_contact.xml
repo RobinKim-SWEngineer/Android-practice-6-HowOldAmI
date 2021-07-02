@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable
+            name="hint"
+            type="com.howOldAmIToday.howoldami.ContactFragment.Hint"/>
+    </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -46,37 +51,41 @@
                 android:padding="20dp">
 
                 <EditText
+                    android:id="@+id/editText_contactName"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="#C3F5FAFA"
-                    android:hint="@string/editText_firstName"
+                    android:hint="@{hint.name}"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="@dimen/editText_contactInputTextSize" />
 
                 <EditText
+                    android:id="@+id/editText_contactEmail"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="20dp"
                     android:background="#C3F5FAFA"
-                    android:hint="@string/editText_Email"
+                    android:hint="@{hint.mail}"
                     android:inputType="textEmailAddress"
                     android:padding="10dp"
                     android:textSize="@dimen/editText_contactInputTextSize" />
 
                 <EditText
+                    android:id="@+id/editText_contacContent"
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
                     android:layout_marginTop="20dp"
                     android:background="#C3F5FAFA"
                     android:gravity="start"
-                    android:hint="@string/editText_comment"
+                    android:hint="@{hint.content}"
                     android:inputType="textLongMessage"
                     android:padding="10dp"
                     android:textSize="@dimen/editText_contactInputTextSize" />
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/materialButton_send"
                 android:layout_width="181dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
